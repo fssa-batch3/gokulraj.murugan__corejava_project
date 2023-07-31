@@ -7,22 +7,11 @@ import java.sql.SQLException;
 import java.util.*;
 import day11.solved.ConnectionUtil;
 
-class Task {
-	int id;
-	String name;
-	String status;
-
-	public Task(String name, String status) {
-		this.name = name;
-		this.status = status;
-
-	}
-}
 
 // Create Junit Test case and test the TaskDao.createTask method
 public class TaskDo {
 
-	public static boolean createTask(Task task) throws DAOException {
+	public static boolean createTask(SQlTask task) throws DAOException {
 
 		if (task == null) {
 			throw new DAOException("Task object cannot be null");
@@ -66,7 +55,7 @@ public class TaskDo {
 
 	public static void main(String[] args) throws DAOException {
 
-		Task task1 = new Task("Learn java", "Completed");
+		SQlTask task1 = new SQlTask("Learn java", "Completed");
 		try {
 			createTask(task1);
 

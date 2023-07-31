@@ -31,8 +31,8 @@ public class TestSortedList {
 			Assertions.assertEquals("ArrayList cannot be null or empty", e.getMessage());
 		}
 	}
-
-	@Test
+ 
+	@Test 
 	public void TestSortArrayList() {
 
 		ArrayList<Integer> answer = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
@@ -44,16 +44,5 @@ public class TestSortedList {
 		Assertions.assertEquals(answer, sortedList);
 	}
 
-	public void TestInvalidSortArrayList() {
-		
-		ArrayList<Integer> answer = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
-
-		ArrayList<Integer> result = new ArrayList<Integer>(Arrays.asList(5, 3, 1, 2, 4));
-
-		ArrayList<Integer> sortedList = SortedList.sortArrayList(result);
-
-		Assertions.assertEquals(answer, sortedList);
-
-	}
 
 }

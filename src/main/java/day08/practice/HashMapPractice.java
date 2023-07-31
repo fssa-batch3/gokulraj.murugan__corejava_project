@@ -1,30 +1,44 @@
 package day08.practice;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class HashMapPractice {
 	public static void main(String[] args) {
+		String s = "Ram,Ram,Superman,Spider,hey,hello,Spider";
 
-		String[] name = { "Ram", "Ram", "Superman", "Spider", "hey", "hello", "hey", "Spider" };
+		Map<String, Integer> countMap = countRepetation(s);
 
-		Map<String, Integer> countMap = new TreeMap<String, Integer>();
+		for (String element : countMap.keySet()) {
 
-		for (int i = 0; i < name.length; i++) {
-			if (countMap.get(name[i]) != null) {
-				int count = countMap.get(name[i]);
-				count++;
-				countMap.put(name[i], count);
+			Integer count = countMap.get(element);
+			System.out.println(element + ": " + count);
 
+		}
+
+	}
+
+	public static Map<String, Integer> countRepetation(String s) throws IllegalArgumentException {
+
+		if (s == null || "".equals(s.trim())) {
+			throw new IllegalArgumentException("A string cannot be null or empty");
+		}
+
+		String arr[] = s.split(",");
+		HashMap<String, Integer> countMap = new HashMap<String, Integer>();
+		for (int i = 0; i < arr.length; i++) {
+
+			if (countMap.get(arr[i]) == null) {
+				countMap.put(arr[i], 1);
 			} else {
-
-				countMap.put(name[i], 1);
+				int count = countMap.get(arr[i]);
+				count++;
+				countMap.put(arr[i], count);
 
 			}
 
 		}
-
-	System.out.println(countMap);
+		return countMap;
 
 	}
 }

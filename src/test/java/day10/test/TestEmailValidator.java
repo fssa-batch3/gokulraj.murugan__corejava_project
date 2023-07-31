@@ -20,6 +20,8 @@ public class TestEmailValidator{
 		try {
 		boolean result = EmailValidator.isValidEmail("gokulgamil");
 		
+		Assertions.fail("Test Failed");
+		
 		}
 		catch(InvalidEmailException e) {
 			Assertions.assertEquals("Email does not match", e.getMessage());
