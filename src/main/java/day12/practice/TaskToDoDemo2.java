@@ -11,25 +11,10 @@ import java.util.*;
 import day11.practice.DAOException;
 import day11.solved.ConnectionUtil;
 
-class Task {
-	int id;
-	String name;
-	String status;
-
-	public Task(String name, String status) {
-		this.name = name;
-		this.status = status;
-
-	}
-
-	public Task() {
-
-	}
-}
 
 public class TaskToDoDemo2 {
 
-	public static boolean taskValidate(Task task) {
+	public static boolean taskValidate(Task8 task) {
 		if (task.name == null || "".equals(task.name)) {
 			throw new IllegalArgumentException("Task name cannot null or empty");
 		}
@@ -54,7 +39,7 @@ public class TaskToDoDemo2 {
 		return connection;
 	}
 
-	public static boolean createTask(Task task) throws DAOException, IllegalArgumentException {// User defined Exception
+	public static boolean createTask(Task8 task) throws DAOException, IllegalArgumentException {// User defined Exception
 																								// {
 		// Write code here to get connection
 		// Create insert statement
@@ -93,7 +78,7 @@ public class TaskToDoDemo2 {
 		return true;
 	}
 
-	public static boolean updateTask(Task task) throws DAOException { // User defined Exception {
+	public static boolean updateTask(Task8 task) throws DAOException { // User defined Exception {
 		// Write code here to get connection
 		// Create update statement using task id
 		// Execute update statement using task id
@@ -169,7 +154,7 @@ public class TaskToDoDemo2 {
 		return true;
 	}
 
-	public static List<Task> getAllTasks() throws DAOException {// User defined Exception {
+	public static List<Task8> getAllTasks() throws DAOException {// User defined Exception {
 		// Write code here to get connection
 		// Create a Select all query with each attribute listed as columns
 		// Execute query
@@ -187,10 +172,10 @@ public class TaskToDoDemo2 {
 			Statement statement = con.createStatement();
 			ResultSet result = statement.executeQuery(query);
 
-			List<Task> taskslist = new ArrayList<>();
+			List<Task8> taskslist = new ArrayList<>();
 			while (result.next()) {
 
-				Task task = new Task();
+				Task8 task = new Task8();
 				task.id = result.getInt("id");
 				task.name = result.getString("id");
 				task.status = result.getString("id");
@@ -210,9 +195,9 @@ public class TaskToDoDemo2 {
 	}
 
 	public static void main(String[] args) throws DAOException {
-		List<Task> taskslist = getAllTasks();
+		List<Task8> taskslist = getAllTasks();
 
-		for (Task element : taskslist) {
+		for (Task8 element : taskslist) {
 
 			System.out.println("Id:" + element.id + ",Task Name" + element.name + " Task Status" + element.status);
 		}
